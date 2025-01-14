@@ -1,17 +1,25 @@
-- to creat a user use **useradd** 
+### B2B 
 
-- to change the name of user: **usermod -l 'new name' 'old name'**
+
+- To creat a user use **useradd** 
+
+- To change the name of user: **usermod -l 'new name' 'old name'**
 
 - **chage** cmd to see the info about user
 
 - **userdel** to remove user add -r to delete it from hom dir
 
+
 - Special User Accounts
 
-```Special user accounts are required to run processes associated with certain services. For example, daemon is a user account that is used to run the daemon service.In special user accounts, the UID value for the users will be less than the default UID value, which is 500. Such special users will not have a home directory. You can create a special user account using the useradd -r {special user name} command.```
+```
+Special user accounts are required to run processes associated with certain services. For example, daemon is a user account that is used to run the daemon service.In special user accounts, the UID value for the users will be less than the default UID value, which is 500. Such special users will not have a home directory. You can create a special user account using the useradd -r {special user name} command.
 
 ```
-The chage Command
+
+#### The chage Command
+
+```
 The chage command is used to change a number of settings that relate to the password and status of the user account.
 
 The syntax of the chage command is chage [options] {username}.
@@ -81,8 +89,8 @@ chage -l {user name}
 Lists the password aging information for the specified user.
 
 
-The userdel Command
-The userdel command allows you to modify the system account files, deleting all entries that refer to the login of an existing user. However, it will not allow you to remove an account if the user is currently logged in. You must kill any running processes that belong to an account before deleting the account.
+* The userdel Command:
+    The userdel command allows you to modify the system account files, deleting all entries that refer to the login of an existing user. However, it will not allow you to remove an account if the user is currently logged in. You must kill any running processes that belong to an account before deleting the account.
 
 The syntax of the userdel command is userdel [options] {username}.
 
@@ -91,8 +99,8 @@ The -r Option
 The -r option will delete the files in the user’s home directory, along with the home directory itself. Files owned by this user and located in other locations will have to be searched for and deleted manually.
 
 
-The usermod Command
-The usermod command has options that enable you to modify various user account parameters. You can change a user’s name, default groups, UID, or passwords.
+* The usermod Command:
+    The usermod command has options that enable you to modify various user account parameters. You can change a user’s name, default groups, UID, or passwords.
 
 The syntax of the usermod command is usermod [options] {username}.
 
@@ -168,6 +176,7 @@ gnome
 
 The root User
 Every Linux system has at least one system administrator whose job is to maintain the system and make it available to users. This user is the root user. The root user can perform any task on the Linux system without restrictions. System administrators are also responsible for adding new users to the system and for setting up their initial environment.
-``
+```
+
 ### BIOS 
 
