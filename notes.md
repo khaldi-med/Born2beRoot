@@ -180,7 +180,7 @@ Every Linux system has at least one system administrator whose job is to maintai
 
 ### BIOS 
 
-1. Boot Process Overview
+#### 1. Boot Process Overview
 
 ```
 Now that we've gotten a pretty good grasp at some of the important components of Linux, let's piece them altogether by learning about how the system boots. When you turn on your machine, it does some neat things like show you the logo screen, run through some different messages and then at the end you're prompted with a login window. Well there is actually a ton of stuff happening between when you push the power button to when you login and we'll discuss those in this course.
@@ -207,7 +207,7 @@ There it is, the (very) simple explanation of the Linux boot process. We will go
 
 ```
 
-2. Boot Process: BIOS
+#### 2. Boot Process: BIOS
 
 ```
 The first step in the Linux boot process is the BIOS which performs system integrity checks. The BIOS is a firmware that comes most common in IBM PC compatible computers, the dominant type of computers out there today. You've probably used the BIOS firmware to change the boot order of your harddisks, check system time, your machine's mac address, etc. The BIOS's main goal is to find the system bootloader.
@@ -223,7 +223,7 @@ There is another way to boot up your system instead of using BIOS and that is wi
 UEFI stores all the information about startup in an .efi file. This file is stored on a special partition called EFI system partition on the hardware. Inside this partition it will contain the bootloader. UEFI comes with many improvements from the traditional BIOS firmware. However, since we are using Linux, the majority of us are using BIOS. So all of these lessons will be going along with that pretense.
 ```
 
-3. Boot Process: Bootloader
+#### 3. Boot Process: Bootloader
 
 ```
 The bootloader's main responsibilities are:
@@ -243,7 +243,7 @@ quiet - This is added so that you don't see display messages that are going on i
 splash - This lets the splash screen be shown.
 ```
 
-4. Boot Process: Kernel
+#### 4. Boot Process: Kernel
 
 ```
 So now that our bootloader has passed on the necessary parameters, let's see how it get's started:
@@ -258,21 +258,22 @@ Now the kernel has all the modules it needs to create a root device and mount th
 ```
 
 
-5. Boot Process: Init
+#### 5. Boot Process: Init
+
 ```
 We've discussed init in previous lessons and know that it is the first process that gets started and it starts all the other essential services on our system. But how?
 
 There are actually three major implementations of init in Linux:
 
-System V init (sysv)
+    * System V init (sysv)
 
 This is the traditional init system. It sequentially starts and stops processes, based on startup scripts. The state of the machine is denoted by runlevels, each runlevel starts or stops a machine in a different way.
 
-Upstart
+    * Upstart
 
 This is the init you'll find on older Ubuntu installations. Upstart uses the idea of jobs and events and works by starting jobs that performs certain actions in response to events.
 
-Systemd
+    * Systemd
 
 This is the new standard for init, it is goal oriented. Basically you have a goal that you want to achieve and systemd tries to satisfy the goal's dependencies to complete the goal.
 
