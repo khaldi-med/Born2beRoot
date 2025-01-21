@@ -21,7 +21,7 @@
 - **userdel** to remove user add -r to delete it from hom dir
 
 
-- Special User Accounts
+### Special User Accounts
 
 ```
 Special user accounts are required to run processes associated with certain services. For example, daemon is a user account that is used to run the daemon service.In special user accounts, the UID value for the users will be less than the default UID value, which is 500. Such special users will not have a home directory. You can create a special user account using the useradd -r {special user name} command.
@@ -41,33 +41,33 @@ Setting
 
 Purpose
 
-Minimum Password Age
+ * Minimum Password Age
 
 The minimum number of days that must pass after the user has changed their password before they are allowed to change it again. The default is 0 which means Minimum Password Age is disabled.
 
-Maximum Password Age
+ * Maximum Password Age
 
 The maximum number of days the user may use a password before they must change it. The default is 99999 which is over 200 years. Effectively, this means the Maximum Password Age is disabled.
 
-Last Password Change
+ * Last Password Change
 
 The date on which the user last changed their password.
 
-Password Expiration Warning
+ * Password Expiration Warning
 
 The number of days before the Maximum Password Age is reached when the user should be warned that their password is going to expire. This reminds the user to change the password a week before the Maximum Password Age is reached.
 
-Password Inactive
+ * Password Inactive
 
 This setting indicates whether the password is inactive. The default is -1 which means the password is not inactive. If the value is set to 1, the password is inactive and the account is disabled.
 
-Account Expiration Date
+ * Account Expiration Date
 
 The last date the account can be used. After the account expiration date has passed, the account is disabled.
 
 The chage command has some options:
 
-Option
+ * Option
 
 Allows You To
 
@@ -98,20 +98,20 @@ Sets the warning period to the number of days specified. The user will be warned
 chage -l {user name}
 
 Lists the password aging information for the specified user.
+```
 
-
-* The userdel Command:
-    The userdel command allows you to modify the system account files, deleting all entries that refer to the login of an existing user. However, it will not allow you to remove an account if the user is currently logged in. You must kill any running processes that belong to an account before deleting the account.
+#### The userdel Command:
+ 
+* The userdel command allows you to modify the system account files, deleting all entries that refer to the login of an existing user. However, it will not allow you to remove an account if the user is currently logged in. You must kill any running processes that belong to an account before deleting the account.
 
 The syntax of the userdel command is userdel [options] {username}.
 
-
 The -r Option
-The -r option will delete the files in the user’s home directory, along with the home directory itself. Files owned by this user and located in other locations will have to be searched for and deleted manually.
+	* The -r option will delete the files in the user’s home directory, along with the home directory itself. Files owned by this user and located in other locations will have to be searched for and deleted manually.
 
+#### The usermod Command:
 
-* The usermod Command:
-    The usermod command has options that enable you to modify various user account parameters. You can change a user’s name, default groups, UID, or passwords.
+* The usermod command has options that enable you to modify various user account parameters. You can change a user’s name, default groups, UID, or passwords.
 
 The syntax of the usermod command is usermod [options] {username}.
 
@@ -158,36 +158,35 @@ Usermod -G {group name} {user name}
 Adds the user to the specified group.
 
 
-Lock User Login
-In Linux, you can lock a user’s login to temporarily prevent a user from logging in to a system. This is done by disabling the user’s password using the passwd -l or usermod -L command. The user’s login is usually locked as a security measure, to prevent unauthorized usage when the user is unavailable.
-```
+#### Lock User Login
 
-- Default User Accounts
+* In Linux, you can lock a user’s login to temporarily prevent a user from logging in to a system. This is done by disabling the user’s password using the passwd -l or usermod -L command. The user’s login is usually locked as a security measure, to prevent unauthorized usage when the user is unavailable.
 
-```
+#### Default User Accounts
+
 Numerous user accounts are created by default upon system installation. Some of the main user accounts include the following:
 
-root
+ * root
 
-bin
+ * bin
 
-daemon
+ * daemon
 
-ftp
+ * ftp
 
-sshd
+ * sshd
 
-nfsnobody
+ * nfsnobody
 
-apache
+ * apache
 
-rpc
+ * rpc
 
-gnome
+ * gnome
 
-The root User
+- The root User
 Every Linux system has at least one system administrator whose job is to maintain the system and make it available to users. This user is the root user. The root user can perform any task on the Linux system without restrictions. System administrators are also responsible for adding new users to the system and for setting up their initial environment.
-```
+
 
 ### BIOS 
 
@@ -302,9 +301,7 @@ I won't get into specifics of system calls, as that will require you to know a b
 
 You can actually view the system calls that a process makes with the strace command. The strace command is useful for debugging how a program executed.
 ```
-> $ strace ls "view the system calls that a process makes"
+> $ strace ls **view the system calls that a process makes**
 
-> lsmod "View a list of currently loaded modules"
-
-> 
+> $ lsmod **View a list of currently loaded modules**
 
