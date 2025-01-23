@@ -406,3 +406,43 @@ The syntax of the systemctl command is:
 #### Bringing a Job to the Foreground
 
 * If you need to bring a job from the background to the foreground, use the fg command, with the syntax fg {%#}(where # is the job number). You do not have to enter a number after the percent sign if there is only one job running in the background.
+
+> kill {%job number} "Terminate the specified process."
+
+#### ps command 
+
+* The ps commnd supports several options. Some of the important options are listed here.
+
+* Description 
+
+```
+a 
+
+Lists all user-triggered processes. 
+
+-e 
+
+Lists all processes. 
+
+-l 
+
+A job that is killed. Lists processes using a long listing format. 
+
+u 
+
+Lists processes along with the user name and start time. 
+
+r 
+
+Excludes processes that are not running currently. 
+
+x 
+
+Includes processes without a terminal. 
+
+T 
+
+Excludes processes that were started by any terminal other than the current one. 
+```
+
+
