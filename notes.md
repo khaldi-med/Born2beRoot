@@ -401,5 +401,8 @@ The syntax of the systemctl command is:
 
 #### Restarting a Suspended Job
 
-The bg command, with the syntax **bg {%#}** (where # is the job number) can be used to restart a specified background job that has been suspended. If there is only one job running in the background, then you do not have to specify the number. You can type bg % to restart it.
+* The bg command, with the syntax **bg {%#}** (where # is the job number) can be used to restart a specified background job that has been suspended. If there is only one job running in the background, then you do not have to specify the number. You can type bg % to restart it.
 
+#### Bringing a Job to the Foreground
+
+* If you need to bring a job from the background to the foreground, use the fg command, with the syntax fg {%#}(where # is the job number). You do not have to enter a number after the percent sign if there is only one job running in the background.
