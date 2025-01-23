@@ -443,6 +443,22 @@ Includes processes without a terminal.
 T 
 
 Excludes processes that were started by any terminal other than the current one. 
+
+-U {user name}
+
+Display the processes based on the specified user.
+
+-p {PID}
+
+Display only the specified process associated with the PID.
+
+-C {command}
+
+Display all processes by command name.
+
+--tty {terminal number}
+
+Display all processes running on the specified terminal.
 ```
 
 
