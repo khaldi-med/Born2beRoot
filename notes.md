@@ -462,4 +462,14 @@ Display all processes by command name.
 Display all processes running on the specified terminal.
 ```
 
+> The pstree command enables you to list the processes running on a Linux system in a tree-like format.
 
+> pidof[options] {string}
+
+    * Displays the PID of the process whose name is specified and can be used only when the name of the process is known. However, it is recommended that a full path name of the process be given because more than one process could run with the same name. The syntax of this command is pidof[options] {string}. 
+
+> pgrep[options] {process name}
+
+ * Displays the PID of processes that match any given criteria such as the name or UID of the user who invoked it, the start time, the parent PID, and so on. 
+
+ 
