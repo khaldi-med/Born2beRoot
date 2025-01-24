@@ -462,7 +462,7 @@ Display all processes by command name.
 Display all processes running on the specified terminal.
 ```
 
-> The pstree command enables you to list the processes running on a Linux system in a tree-like format.
+> The **pstree** command enables you to list the processes running on a Linux system in a tree-like format.
 
 > pidof[options] {string}
 
