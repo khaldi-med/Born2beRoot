@@ -476,3 +476,43 @@ Display all processes running on the specified terminal.
 
 * Signals are messages sent to a process to perform certain actions. They are used to suspend or terminate processes. Signals may affect only the process specified and its child processes. Signals may be executed, caught, blocked, or ignored by processes. 
 
+#### kill Commands
+
+* Different commands are used to send signals to processes to end or “kill” them.
+
+- kill 
+
+Sends any specified signal, or by default the termination signal, to one or more processes. The PID must be specified as the argument. The syntax of this command is kill[options] {PID}. 
+
+- pkill
+
+Signals processes based on the name and other identifiers as in the pgrep command. The syntax of this command is pkill[options] {command}. 
+
+- killall
+
+- Kills all processes by the name specified. The syntax of this command is killall[options] {command}. 
+
+> Note: The kill command accepts either the PID or the job number as an argument. So, this command can also be used as a job control tool.
+
+
+* Kill Signal Options
+You can either use the kill signal option or its corresponding numerical value to send a signal to terminate a process. The following table lists the most frequently used kill signal options and their description.
+
+- SIGKILL or 9 
+
+    Send the kill signal to a process. 
+
+- SIGTERM or 15 
+
+    Send the termination signal to a process. 
+
+- SIGSTOP or 19 
+
+    Stop a process.
+
+* Using the PID Number to Terminate Processes
+You can use the kill command with the process table to end processes. By entering kill followed by the PID, you can terminate specific processes. 
+
+* When you use the kill command with the jobs table, you are working only with the jobs that you started. However, the process table may display processes that do not belong to you. As a user, you can use the kill command only with processes that you own. As root, you can kill anyone’s processes.
+
+* There are many options available with the kill command. These options are referred to as kill signals. Some processes cannot be eliminated by the kill command. To terminate these processes, **use the kill command with the -9 signal.** This terminates the processes immediately.
