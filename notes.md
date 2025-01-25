@@ -472,4 +472,7 @@ Display all processes running on the specified terminal.
 
  * Displays the PID of processes that match any given criteria such as the name or UID of the user who invoked it, the start time, the parent PID, and so on. 
 
- 
+#### Signals
+
+* Signals are messages sent to a process to perform certain actions. They are used to suspend or terminate processes. Signals may affect only the process specified and its child processes. Signals may be executed, caught, blocked, or ignored by processes. 
+
