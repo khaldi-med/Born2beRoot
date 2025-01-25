@@ -523,4 +523,32 @@ You can use the kill command with the process table to end processes. By enterin
 
 > The renice command enables you to alter the scheduling priority of a running process.
 
+#### Delayed and Detached Jobs
 
+* Delayed and detached jobs are job processes that enable users to put off the start of a job.
+
+
+* Delayed Jobs
+A delayed job is one that can be run at some specified time after you issue the command. For example, a CPU-intensive job that can slow down the system is one that you may want to delay for off-peak work hours.
+
+
+* Detached Jobs
+A detached job is a job that can be set to run after you log out of the system. For example, a task that will not be completed until after you leave can be set to continue running after you log out of the system.
+
+* To delay the start of a job, use the sleep command followed by the delay in seconds and the command name. The sleep command suspends any action upon the specified command for the specified number of seconds and then the command specified is executed. The delay can be up to 2,147,483,647 seconds. This is roughly 596,523 hours; 24,855 days; or 68 years so that the amount of time can easily be customized. You may also use the at command to run a command at a specified date and time.
+
+
+> The **nohup** Command
+The nohup (no hangup) command tells a program to ignore the hangup signal that was sent while disconnecting. The nohup.out file stores the output of the nohup command, which will normally be displayed on the terminal.
+
+* If you have a task that cannot be completed until after you leave work, or if you have a task that is CPU-intensive and may slow the system, you can start the task before you leave and specify that it continues even after you log out of the system. You can do this by using the nohup (no hangup) command. The nohup command should run in the background so that it does not tie up your terminal. To enable a command to run in the background after you have logged out, use the syntax **nohup [command] &**.
+
+
+* The screen Command
+* The GNU screen command is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells. The screen command is another way that you can leave work running after you leave the system, which can then be resumed at a later point by reconnecting to your active screen session.
+
+* If you have a task that cannot be completed until after you leave work, or if you have a task that is CPU-intensive and may slow the system, you can start the task before you leave and specify that it continues even after you log out of the system. You can do this by using the screen command. The screen command will continue to keep the interactive shell open and run your program in the background so that it does not tie up your terminal. When you next connect to your server, you can restore the active screen session via the screen -r command.
+
+> Note: The screen command is not installed by default. To install it, use the sudo apt-get install screen command.
+
+> 
