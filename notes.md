@@ -516,3 +516,11 @@ You can use the kill command with the process table to end processes. By enterin
 * When you use the kill command with the jobs table, you are working only with the jobs that you started. However, the process table may display processes that do not belong to you. As a user, you can use the kill command only with processes that you own. As root, you can kill anyone’s processes.
 
 * There are many options available with the kill command. These options are referred to as kill signals. Some processes cannot be eliminated by the kill command. To terminate these processes, **use the kill command with the -9 signal.** This terminates the processes immediately.
+
+> $ top command lists all tasks running on a Linux system. 
+
+> $ The nice command allows you to assign a priority level to a process. 
+
+> The renice command enables you to alter the scheduling priority of a running process.
+
+
