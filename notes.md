@@ -551,4 +551,12 @@ The nohup (no hangup) command tells a program to ignore the hangup signal that w
 
 > Note: The screen command is not installed by default. To install it, use the sudo apt-get install screen command.
 
-> 
+
+#### Cron
+
+* Cron is a daemon that runs in the background on a Linux system and executes specified tasks at a designated time or date. Cron is normally used to schedule periodically executed tasks defined in the crontab file.
+
+> The syntax of the cron daemon is **cron [option] {mail command}**.
+
+
+
