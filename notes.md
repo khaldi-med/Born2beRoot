@@ -559,4 +559,12 @@ The nohup (no hangup) command tells a program to ignore the hangup signal that w
 > The syntax of the cron daemon is **cron [option] {mail command}**.
 
 
+### LVM
+
+
+* The underlying physical storage unit of an LVM logical volume is a block device such as a partition or whole disk. This device is initialized as an LVM physical volume (PV).
+To create an LVM logical volume, the physical volumes are combined into a volume group (VG). This creates a pool of disk space out of which LVM logical volumes (LVs) can be allocated.
+
+> A logical volume is used by file systems and applications (such as databases).
+
 
