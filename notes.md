@@ -1,5 +1,9 @@
 ### B2B
 
+* **INDIRECTION**
+    * “All problems in computer science can be solved by another level of indirection”—David Wheeler.
+    * “. . . except for the problem of too many layers of indirection.”—Kevlin Henney.
+
 
 #### Debian
 
