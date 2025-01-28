@@ -593,4 +593,5 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 
 > A logical volume is used by file systems and applications (such as databases).
 
-
+#### Lighttpd 
+* (prescribed pronunciation: **"lighty"**) is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible.
