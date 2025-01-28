@@ -667,6 +667,88 @@ save {file name}
 
 Save the output to a file instead of displaying it.
 
+#### System crontab Files
+
+* System crontab files are the configuration files for the cron utility. They are stored in the /etc/crontab file. The name of the user running the command is indicated in the sixth field of the file. When you create a crontab entry for a specific user, the sixth field contains the command that needs to be run at the specified time. System crontab files can be edited by the root user.
+
+
+* User crontab Files
+In addition to system-level cron jobs, individual users can schedule cron jobs. Unlike the system- level crontab, users have their own crontab files. The format of entries in this file is the same as that of the system-level crontab, with the exception of the user field. Because the entire crontab file is dedicated to a single user, the user field is not included. While the /etc/crontab file can be edited directly, user crontab files are best edited via the crontab utility.
+
+
+#### The at Command
+The at command executes a given set of commands at a specified time. This command is useful for executing a set of commands only once. Using either the -f option or input redirection, the at command reads the list of commands from a file. This file needs to be an executable shell script. 
+
+The syntax of the at command is at [options] {time}.
+
+The following table lists some frequently used at command options and their descriptions.
+
+Option
+
+Enables You To 
+
+atq
+
+Display the job queue of all users except the superuser. 
+
+atq -V 
+
+Display the version number. 
+
+at -q [a-z] 
+
+Display the jobs in the specified queue. 
+
+at -m 
+
+Send mail to the user when the job is complete. 
+
+at -f {file name} 
+
+Read the job from the file rather than the standard input. 
+
+at -l 
+
+Print all the jobs queued for the user. 
+
+at -v 
+
+Display the time that the job will be executed before reading the job.
+
+If the at command is not installed, you can use the sudo apt install at command to install it.
+
+
+Specifying Time Using the at Command
+There are a number of common time formats. Some of the common time formats in which you can schedule a job are given in the following table.
+
+Time Format 
+
+Description 
+
+HH:MM A.M. or HH:MM P.M. 
+
+Specifies the hour and minute. 
+
+MMDDYY or MM/DD/YY or DD.MM.YY 
+
+Specifies the day, month, and year. 
+
+JAN or FEB or MAR 
+
+Specifies the month. 
+
+SUN or MON or TUE 
+
+Specifies the day of the week.
+
+
+#### Anacron
+
+* Anacron is a daemon that executes jobs at intervals, which are specified in days, without requiring the system to be running continuously. Anacron is used to control the execution of daily, weekly, or monthly jobs.
+
+The /etc/anacrontab file is the configuration file for the anacron utility. This file has four fields. The first field displays the number of days the job has not been run, the second field displays the time after which the job has to be run (after reboot), the third field displays the job identifier, and the fourth field displays the job to be run by the anacron utility.
+
+
 ### LVM
 
 * The underlying physical storage unit of an LVM logical volume is a block device such as a partition or whole disk. This device is initialized as an LVM physical volume (PV).
@@ -675,4 +757,5 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 > A logical volume is used by file systems and applications (such as databases).
 
 #### Lighttpd 
+
 * (prescribed pronunciation: **"lighty"**) is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible.
