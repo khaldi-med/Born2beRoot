@@ -1,24 +1,36 @@
 #!/bin/bash
 
 #Architecture
-arch=$(uname -a)
+ARCH=$(uname -a)
 
 #CPU physical
-cpuf=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
+CPU_F=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
 
 #vCPU
-cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
+CPU_V=$(grep "processor" /proc/cpuinfo | wc -l)
 
 #Memory Usage
-ramtotal=$(free --mega | awk '$1 == "Mem:"{print $2}')
-ramused=$(free --mega | awk '$1 == "Mem:"{print $3}')
-ramP=$(echo "scale=2; $ramused / $ramtotal * 100" | bc) 
+	#RAM TOTAL
+RAM_T=$(free --mega | grep Mem | awk '{print $2}')
+	#RAM USED
+RAM_U=$(free --mega | grep Mem | awk '{print $3}')
+	#RAM %
+RAM_P=$(echo "scale=2; $RAM_U / $RAM_T * 100" | bc)
 
 #Disk Usage
+	#Disk Total
+	D_T=$(df -h --total | grep total | awk '{print $2}')
+	#Disk Used
+	D_U=$(df -h --total | grep total | awk '{print $3}')
+	#Disk %
+	D_P=$(df -k --total | grep total | awk '{print $5}')
 
 wall "
-	cpuf ${cpuf} 
-	vcpu ${cpuv}
-	ramtot ${ramtotal}
-	RAM Usage Percentage: $ramused/$ramtotal"MB" (${ramP}%)
-"
+
+----------------------------------------------------
+	#Architecture: $ARCH
+	#CPU physical: ${CPU_F} 
+	#vCPU: ${CPU_V}
+	#Memory Usage: ${RAM_U}/${RAM_T}MB (${RAM_P}%)
+	#Disk Usage: ${D_U}/${D_T} (${D_P})
+-----------------------------------------------------"
