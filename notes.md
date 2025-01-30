@@ -562,6 +562,7 @@ The nohup (no hangup) command tells a program to ignore the hangup signal that w
 
 * Cron is a daemon that runs in the background on a Linux system and executes specified tasks at a designated time or date. Cron is normally used to schedule periodically executed tasks defined in the crontab file.
 
+
 > The syntax of the cron daemon is **cron [option] {mail command}**.
 
 
@@ -583,6 +584,7 @@ The nohup (no hangup) command tells a program to ignore the hangup signal that w
 47 6    * * 7   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
 52 6    1 * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
 ```
+
 #### The tmpreaper Command
 * The tmpreaper command can be run as a daily cron job that is used to delete files, such as the files in the /tmp directory, which have not been accessed for some time and are utilizing disk space. 
 
