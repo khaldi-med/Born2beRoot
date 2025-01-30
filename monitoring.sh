@@ -7,30 +7,47 @@ ARCH=$(uname -a)
 CPU_F=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
 
 #vCPU
-CPU_V=$(grep "processor" /proc/cpuinfo | wc -l)
+CPU_V=$(nproc)
 
 #Memory Usage
-	#RAM TOTAL
-RAM_T=$(free --mega | grep Mem | awk '{print $2}')
-	#RAM USED
-RAM_U=$(free --mega | grep Mem | awk '{print $3}')
-	#RAM %
-RAM_P=$(echo "scale=2; $RAM_U / $RAM_T * 100" | bc)
+RAM_US=$(free -m | awk 'NR==2{printf "%d/%dMB (%.2f%%)", $3, $     2, $3*100/$2}')
 
 #Disk Usage
-	#Disk Total
-	D_T=$(df -h --total | grep total | awk '{print $2}')
-	#Disk Used
-	D_U=$(df -h --total | grep total | awk '{print $3}')
-	#Disk %
-	D_P=$(df -k --total | grep total | awk '{print $5}')
+D_US=$(df -h --total | awk 'NR==2{printf "%d/%dG (%d%%)", $3, $2,        $5}')
+
+#CPU load
+CPU_L=$(top -bn1 | grep "Cpu(s)" | awk '{printf "%.1f%%", $2}')
+
+#Last boot
+LAST_B=$(who -b | awk '{print $3 " " $4}')
+
+#LVM use
+LVM_U=$(lsblk | grep lvm && echo "yes" || echo "no")
+
+#Connections TCP
+TCP_CON=$(netstat -t | grep -c ESTABLISHED)
+
+#User log
+USERS=$(who | wc -l)
+
+#Network
+IPv4_AD=$(hostname -T | awk '{print $1}')
+MAC_AD=$(ip link | grep "link/ether" | awk '{print $2}' | head -n 1)
+
+#Sudo
+SUDO_N=$(grep COMMAND /var/log/sudo/sudo.log | wc -l && echo "cmd")
 
 wall "
-
-----------------------------------------------------
 	#Architecture: $ARCH
 	#CPU physical: ${CPU_F} 
 	#vCPU: ${CPU_V}
-	#Memory Usage: ${RAM_U}/${RAM_T}MB (${RAM_P}%)
-	#Disk Usage: ${D_U}/${D_T} (${D_P})
------------------------------------------------------"
+	#Memory Usage: ${RAM_US}
+	#Disk Usage: ${D_US}
+	#CPU load: ${CPU_L}
+	#Last boot: ${LAST_B}
+	#LVM use: ${LVM_U}
+	#Connections TCP: ${TCP_CON}
+	#User log: ${USERS}
+	#Network: ${IPv4_AD} (${MAC_AD})
+	#Sudo : ${SUDO_N}
+"
