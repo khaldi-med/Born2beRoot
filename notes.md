@@ -761,3 +761,8 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 #### Lighttpd 
 
 * (prescribed pronunciation: **"lighty"**) is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible.
+
+
+#### Changing the Hostname
+
+> sudo hostnamectl set-hostname **<new_hostname>**
