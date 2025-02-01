@@ -766,3 +766,14 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 #### Changing the Hostname
 
 > sudo hostnamectl set-hostname **<new_hostname>**
+
+#### Group Management
+
+> groupadd : creates a new group.
+> gpasswd -a : adds a user to a group.
+> gpasswd -d : removes a user from a group.
+> groupdel : deletes a group.
+> groups : displays the groups of a user.
+> id -g : shows a user’s main group ID.
+> getent group : displays a list of all users in a group.
+
