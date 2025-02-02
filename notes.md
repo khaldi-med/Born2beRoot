@@ -788,3 +788,12 @@ Network Time Protocol (NTP) is a standard Internet protocol for synchronizing th
 > id -g : shows a user’s main group ID.
 > getent group : displays a list of all users in a group.
 
+#### kill job
+
+> to kill a job use **kill %'Nunber of job'**
+
+> You want to move the job to sleep for 250 seconds to the foreground. Type fg %'Number of proc' and press Enter
+
+> You want to restart the suspended job. Type bg %'Number of proc' and press Enter.
+
+> To terminate the process running the sleep command, type kill [PID] where [PID] is the PID noted earlier.
