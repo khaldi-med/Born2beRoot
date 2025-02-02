@@ -761,3 +761,16 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 #### Lighttpd 
 
 * (prescribed pronunciation: **"lighty"**) is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible.
+
+
+* The Network Time Protocol (NTP)
+Network Time Protocol (NTP) is a standard Internet protocol for synchronizing the internal system clock with the true time or the average time on a number of high accuracy clocks around the world. NTP is used for transmitting and receiving time on Transmission Control Protocol/Internet Protocol (TCP/IP) networks. NTP is also used to set the clock of one computer to match that of another and synchronize it with the network clock.
+
+
+#### Starting and Stopping Linux
+
+*  Type **runlevel** and press Enter to verify that you’re in **single-user mode**. Verify that the command shows 5 1, which indicates that we were previously at runlevel 5 and are now at runlevel 1. (To return to the default graphical target, which is runlevel 5, you could enter **systemctl isolate graphical** or you could use the **telinit 5** command.)
+
+* To reboot the computer immediately, type **shutdown -r now** and press Enter.
+
+
