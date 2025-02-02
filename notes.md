@@ -763,7 +763,6 @@ To create an LVM logical volume, the physical volumes are combined into a volume
 * (prescribed pronunciation: **"lighty"**) is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible.
 
 
-<<<<<<< HEAD
 * The Network Time Protocol (NTP)
 Network Time Protocol (NTP) is a standard Internet protocol for synchronizing the internal system clock with the true time or the average time on a number of high accuracy clocks around the world. NTP is used for transmitting and receiving time on Transmission Control Protocol/Internet Protocol (TCP/IP) networks. NTP is also used to set the clock of one computer to match that of another and synchronize it with the network clock.
 
@@ -797,3 +796,5 @@ Network Time Protocol (NTP) is a standard Internet protocol for synchronizing th
 > You want to restart the suspended job. Type bg %'Number of proc' and press Enter.
 
 > To terminate the process running the sleep command, type kill [PID] where [PID] is the PID noted earlier.
+
+> To view all processes run by users, type ps xl | less 
