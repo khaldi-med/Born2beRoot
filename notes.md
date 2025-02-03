@@ -798,3 +798,68 @@ Network Time Protocol (NTP) is a standard Internet protocol for synchronizing th
 > To terminate the process running the sleep command, type kill [PID] where [PID] is the PID noted earlier.
 
 > To view all processes run by users, type ps xl | less 
+
+
+### File Systems
+
+* File Systems
+    A file system is a method that is used by an operating system to store, retrieve, organize, and manage files and directories on mass storage devices. A file system maintains information, such as the date of creation and modification of individual files, their file size, file type, and permissions. It also provides a structured form for data storage. A file system by itself does not interpret the data contained in files because this task is handled by specific applications. File systems vary depending on several parameters, such as the purpose of the file systems, the information they store about individual files, the way they store data, and data security.
+
+
+* File System Labels
+    File system labels are assigned to file systems for easy identification. The labels may be up to 16 characters long and can be displayed or changed using the e2label command.
+
+The syntax for setting file system labels is e2label /dev/{device name}{partition number} {label name}. They can also be set using the tune2fs -L {volume label} {device} command.
+
+
+* File System Types
+    Linux supports many common file system types. Some are described in the following table.
+
+- ext2 
+    This used to be the native Linux file system of some of the previous releases. It is still supported in the current releases of Linux.
+
+- ext3 
+    This is an improved version of ext2. In case of an abrupt system shutdown, ext3 is faster in recovering data and better ensures data integrity. You can easily upgrade your file system from ext2 to ext3. 
+
+- ext4 
+    The newest default file system for Linux distributions. It is backwards- compatible with the ext2 and ext3 file systems. Among ext4’s improvements over ext3 are journaling, support of volumes of up to one exbibyte (EiB), and files up to 16 TiB in size. Ext4 is the default filesystem for CentOS/RHEL 7 and Ubuntu installations. 
+
+- XFS 
+    This is a 64-bit, high-performance journaling file system that provides fast recovery and can handle large files efficiently. XFS is the default file system for CentOS/RHEL 7 installations. 
+
+- ReiserFS
+    This can handle small files efficiently. It handles files smaller than 1K and is faster than ext2 and ext3. If appropriately configured, it can store more data than ext2. 
+
+- vfat
+    This is a 32-bit file system and supports long file names. It is compatible with the FAT file system of Microsoft Windows XP and Microsoft Windows NT.
+
+- JFS
+    This is a 64-bit journaling file system that is fast and reliable. It is better equipped to handle power failures and system crashes. 
+
+- swap
+    This is not a true file system, but rather is a portion of the hard disk that is used in situations when Linux runs out of physical memory and needs more of it. Linux pushes some of the unused files from RAM to “swap” to free up memory. 
+
+ISO 9660
+
+This is a file system standard defined by the International Organization for Standardization (ISO), and is also called a CDFS (Compact Disc File System). Linux allows you to access DVDs and CDs that use this file system. 
+
+btrfs (Better FS) 
+
+This is a modern copy on write (CoW) file system for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair, and easy administration. btrfs is licensed under the GPL. 
+
+
+Access to Other File Systems
+Linux allows you to access other file systems and mount them when required. However, you cannot install Linux on these file systems.
+
+File System 
+
+Description 
+
+FAT 
+
+The FAT (File Allocation Table) file system is compatible with different operating systems, including all versions of Windows, MS-DOS, and UNIX. It is primarily used for formatting floppy disks.
+
+NTFS
+
+NTFS (New Technology File System) is the recommended file system for Windows-based computers. NTFS provides many enhanced features over FAT or vfat, including file- and folder-level security, file encryption, disk compression, and scalability to very large drives and files. 
+
