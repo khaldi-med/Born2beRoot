@@ -839,27 +839,73 @@ The syntax for setting file system labels is e2label /dev/{device name}{partitio
 - swap
     This is not a true file system, but rather is a portion of the hard disk that is used in situations when Linux runs out of physical memory and needs more of it. Linux pushes some of the unused files from RAM to “swap” to free up memory. 
 
-ISO 9660
+- ISO 9660
+    This is a file system standard defined by the International Organization for Standardization (ISO), and is also called a CDFS (Compact Disc File System). Linux allows you to access DVDs and CDs that use this file system. 
 
-This is a file system standard defined by the International Organization for Standardization (ISO), and is also called a CDFS (Compact Disc File System). Linux allows you to access DVDs and CDs that use this file system. 
-
-btrfs (Better FS) 
-
-This is a modern copy on write (CoW) file system for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair, and easy administration. btrfs is licensed under the GPL. 
+- btrfs (Better FS) 
+    This is a modern copy on write (CoW) file system for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair, and easy administration. btrfs is licensed under the GPL. 
 
 
-Access to Other File Systems
-Linux allows you to access other file systems and mount them when required. However, you cannot install Linux on these file systems.
+* Access to Other File Systems
+    Linux allows you to access other file systems and mount them when required. However, you cannot install Linux on these file systems.
 
-File System 
+* File System 
 
-Description 
+- FAT 
+    The FAT (File Allocation Table) file system is compatible with different operating systems, including all versions of Windows, MS-DOS, and UNIX. It is primarily used for formatting floppy disks.
 
-FAT 
+- NTFS
+    NTFS (New Technology File System) is the recommended file system for Windows-based computers. NTFS provides many enhanced features over FAT or vfat, including file- and folder-level security, file encryption, disk compression, and scalability to very large drives and files. 
 
-The FAT (File Allocation Table) file system is compatible with different operating systems, including all versions of Windows, MS-DOS, and UNIX. It is primarily used for formatting floppy disks.
+### Partitions
 
-NTFS
+* Partitions
+    A partition is a section of the hard disk that logically acts as a separate disk. Partitions enable you to convert a large hard disk to smaller manageable chunks, leading to better organization of information. A partition must be formatted and assigned a filesystem before data can be stored on it. Partitions are identified using a partition table, which is stored in the boot record. The partition table can contain entries for a maximum of four primary partitions. The size of each partition can vary but cannot exceed the total free space of the hard disk.
 
-NTFS (New Technology File System) is the recommended file system for Windows-based computers. NTFS provides many enhanced features over FAT or vfat, including file- and folder-level security, file encryption, disk compression, and scalability to very large drives and files. 
 
+* Hard Disk Size Specification
+    Before proceeding with the installation process, you need to plan the hard disk layout based on your requirements. Each partition has a recommended size specification. The following table lists the recommended size specification for partitions.
+
+* Partition 
+
+**Recommended Size**
+
+/ 
+
+Minimum 1 GB. 
+
+/boot
+
+100 MB. 
+
+swap 
+
+Double the RAM size. 
+
+/var
+
+Minimum 250 MB. If the possibility of the installation of many applications exists in the future, allocate the appropriate size. 
+
+/home
+
+Varies based on the number of users. 
+
+
+* Disk Partitioning
+    Most operating systems, including Linux, use disk partitions. Data of different types can be stored in separate locations on the hard disk. The partition size can be specified by a user. However, the filesystem size must be considered before specifying the partition size. Disk partitioning enables the user to separate system files from user accessible ones. Corrupted partitions do not affect the other partitions, and they can be recovered separately.
+
+* Partition Type 
+
+* Primary 
+    A disk partition that can contain one filesystem or logical drive and is sometimes referred to as volumes. A maximum of four primary partitions are allowed. The swap filesystem and the boot partition are normally created in a primary partition. 
+
+* Extended 
+    An extended partition can contain several filesystems, which are referred to as logical disks or logical drives. There can be only one extended partition, which can be further subdivided. This partition type does not contain any data and has a separate partition table. 
+
+* Logical 
+    A part of a physical disk drive that has been partitioned and allocated as an independent unit and functions as a separate drive. A logical partition is created within an extended partition. There is no restriction on the number of logical partitions, but it is advisable to limit it to 12 logical partitions per disk drive.
+
+
+### Mount Points
+    
+* A mount point is an access point to information stored on a local or remote storage device. The mount point is typically an empty directory on which a filesystem is loaded, or mounted, to make the filesystem accessible to users. If the directory already has content, the content becomes invisible to the users until the mounted filesystem is unmounted.
