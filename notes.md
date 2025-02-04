@@ -962,4 +962,6 @@ async
 
 Specify that input and output operations in a filesystem should be done asynchronously.
 
+### ATAPI
 
+- AT Attachment Packet Interface (ATAPI) is a protocol for controlling mass storage devices. ATAPI provides commands that are used for hard disks, CD-ROM drives, tape drives, and other devices.
