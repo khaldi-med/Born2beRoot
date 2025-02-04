@@ -909,3 +909,57 @@ Varies based on the number of users.
 ### Mount Points
     
 * A mount point is an access point to information stored on a local or remote storage device. The mount point is typically an empty directory on which a filesystem is loaded, or mounted, to make the filesystem accessible to users. If the directory already has content, the content becomes invisible to the users until the mounted filesystem is unmounted.
+
+- Note: You can use the /etc/fstab file to list the filesystem to be mounted and unmounted when the Linux system boots and shuts down, respectively.
+
+
+* The mount Command
+    - In Linux, a file system cannot be accessed directly. It has to be associated with a directory to make it accessible to users. This association is brought about by loading, or mounting, the filesystem in a directory by using the mount command. After using the file system, it needs to be disassociated from the directory by unloading, or unmounting, the file system using the umount command.
+
+You can specify various mount options for a filesystem.
+
+Option
+
+Enables You To
+
+auto
+
+Specify that the device has to be mounted automatically.
+
+noauto
+
+Specify that the device need not be mounted automatically.
+
+nouser
+
+Specify that only the root user can mount a device or a filesystem.
+
+user
+
+Specify that all users can mount a device or a filesystem.
+
+exec
+
+Allow binaries in a filesystem to be executed.
+
+noexec
+
+Prevent binaries in a filesystem from being executed.
+
+ro
+
+Mount a filesystem as read-only.
+
+rw
+
+Mount a filesystem with read and write permissions.
+
+sync
+
+Specify that input and output operations in a filesystem should be done synchronously.
+
+async
+
+Specify that input and output operations in a filesystem should be done asynchronously.
+
+
