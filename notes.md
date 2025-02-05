@@ -965,3 +965,166 @@ Specify that input and output operations in a filesystem should be done asynchro
 ### ATAPI
 
 - AT Attachment Packet Interface (ATAPI) is a protocol for controlling mass storage devices. ATAPI provides commands that are used for hard disks, CD-ROM drives, tape drives, and other devices.
+
+
+### File System Maintenance Commands
+
+`The fsck Command`
+
+* The fsck command is used to check the integrity of a file system. File system integrity refers to the correctness and validity of a file system. Most systems automatically run the fsck command at boot time so that errors, if any, are detected and corrected before the system is used. File system errors are usually caused by power failures, hardware failures, or improper shutdown of the system.
+
+Note: The fsck command is similar in concept to the chkdsk and scandisk commands you may be familiar with from DOS and Windows-based systems.
+
+The syntax of the fsck command is fsck -t {filesystem type} [options].
+
+
+Repair File Systems
+You can use the fsck -r/dev/{filesystem} command to repair a file system. The command will prompt you to confirm your actions. If you are simultaneously checking multiple file systems, you should not use this option because it allows you to repair only a single file system at a time.
+
+
+The e2fsck Command
+The e2fsck command allows you to check ext2, ext3, and ext4 file systems, and is identical to running the fsck command with ext2, ext3, or ext4 specified as the file system type. You need to unmount the file system before running the e2fsck command to prevent damage to the file system.
+
+The syntax of the e2fsck command is e2fsck /dev/{filesystem}.
+
+
+The xfs_repair Command
+The xfs_repair command allows you to check an XFS file system. As with the fsck and e2fsck commands, you need to unmount the file system before running the xfs_repair command to prevent damage to the file system.
+
+The syntax of the xfs_repair command is xfs_repair [options]/dev/{filesystem}.
+
+
+The tune2fs Utility
+The tune2fs utility helps tuning parameters associated with a Linux file system. Using this utility, a journal can be added to an existing ext2 or ext3 file system. If the file system is already mounted, the journal will be visible in the root directory of the file system. If the file system is not mounted, the journal will be hidden. The tune2fs utility is available with most Linux distributions.
+
+
+Tunable Parameters
+Using the tune2fs utility, you can adjust the parameters of the extended file systems, such as ext2, ext3, and ext4, that can be tuned on a Linux machine even after installation. Tunable parameters allow you to remove reserved blocks; alter reserved block count; and specify the number of mounts between checks, the time interval between checks, and the behavior of the kernel code, among others.
+
+The syntax of the tune2fs utility is tune2fs [options] {device name}.
+
+The tune2fs utility has various options.
+
+Use This Option
+
+To Do This
+
+-j {partition}
+
+Convert the existing file system to an ext3 file system.
+
+-id|m|w
+
+Specify the maximum time interval between file system checks in days, months, or weeks.
+
+-c maximum mounts count
+
+Specify the maximum number of mounts between file system checks.
+
+-C mount count
+
+Specify the number of times the file system can be mounted.
+
+-r reserved blocks count
+
+Specify the number of reserved file system blocks.
+
+-e continue|remount-ro|panic
+
+Specify the behavior of the kernel code, whether the file system should continue with normal execution, remount the file system in read-only mode, or cause a kernel panic, when errors are detected.
+
+-l
+
+List the contents within the superblock of the file system.
+
+-U UUID
+
+Set the specified Universally Unique Identifier (UUID) for the file system.
+
+
+The xfs_admin Command
+The xfs_admin command allows you to manage the parameters of an XFS file system. As with the tune2fs command, you need to unmount the file system before using the xfs_admin command to change parameters.
+
+The syntax of the xfs_admin command is xfs_admin [options] /dev/{filesystem}.
+
+The dumpe2fs Utility
+
+The dumpe2fs utility is used for managing ext2, ext3, and ext4 (extended) file systems. It dumps the status of the extended file system onto the standard output device and prints the block group information for the selected device.
+
+The syntax of the dumpe2fs command is dumpe2fs [options] [block size] {device name}.
+
+The dumpe2fs utility has various options.
+
+Option
+
+Enables You To
+
+-l
+
+Print a detailed report about block numbers in the file system.
+
+-b
+
+Print the bad blocks in the file system.
+
+-f
+
+Force the utility to display the file system status irrespective of the file system flags.
+
+-i
+
+Display file system data from an image file created using the e2image utility.
+
+
+The debugfs Utility
+The debugfs utility allows you to examine and modify ext2, ext3, and ext4 file systems. When executed, the debugfs utility opens an interactive shell that can be used to examine and modify the extended file system.
+
+The table provides some common commands supported by the debugfs utility in the interactive shell.
+
+If You Need To
+
+Use This Command
+
+Open a file system
+
+Convert the existing file system to an ext3 file system.
+
+Close the file system
+
+close
+
+View the file system information
+
+stats
+
+Find a free block
+
+ffb
+
+
+xfs Tools
+There are many xfs tools that allow you to work with the XFS file system.
+
+xfs Tool
+
+Enables You To
+
+xfs_info
+
+Display details about the XFS file system.
+
+xfs_metadump
+
+Copy the metadata information of the XFS file system to a file.
+
+xfs_grow
+
+Expand the XFS file system to fill the disk size.
+
+xfs_repair
+
+Repair and recover a corrupt XFS file system.
+
+xfs_db
+
+Debug the XFS file system.
