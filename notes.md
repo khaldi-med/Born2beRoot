@@ -967,7 +967,7 @@ Specify that input and output operations in a filesystem should be done asynchro
 - AT Attachment Packet Interface (ATAPI) is a protocol for controlling mass storage devices. ATAPI provides commands that are used for hard disks, CD-ROM drives, tape drives, and other devices.
 
 
-### File System Maintenance Commands
+### File System Maintenance Commands------------------------------------------------------------------------------------------------------
 
 > `sudo fdisk -l /dev/sda "show disck info"`
 
@@ -1130,3 +1130,199 @@ Repair and recover a corrupt XFS file system.
 xfs_db
 
 Debug the XFS file system.
+
+-----------------------------------------------------------------------------------------------
+
+
+### Creating Partitions
+
+In this lab you will be adding a new hard drive to the virtual machine and configuring it for use.
+
+Your organization has a support team that works in two shifts. One employee uses a system in the morning shift and the same system is used by another in the evening shift. Both need to have separate partitions mounted according to the details given here:
+
+The logical partitions, sdb5 and sdb6, need to be mounted in the /morning and /evening directories, respectively.
+
+Both partitions should be formatted with the ext4 file system.
+
+You also need to ensure that these partitions are easily identified for maintenance. The labels that need to be applied to the partitions and used for mounting them are:
+
+For the morning shift: Mrng
+
+For the evening shift: Evng
+
+
+
+TASK A
+In this task you will add the virtual hardware to the virtual machine. For this task, the virtual machine must be in an off state. It cannot be in a saved state. If you have previously saved the virtual machine, you will need to launch it. Then using the battery icon, choose Power Off/Log Out and then click Power Off. When prompted, click the Power Off button.
+
+
+
+1. In the Oracle VM VirtualBox Manager window, with the Client1 virtual machine selected, click Settings.
+
+
+
+2. In the Client1 - Settings dialog box, select Storage. In the Storage Devices section, click the Adds new storage controller button.
+
+
+
+3. Select LsiLogic (Default SCSI) from the menu.
+
+
+
+4. Next to Controller: LsiLogic, click the Adds hard disk button.
+
+
+
+5. In the Client1 - Hard Disk Selector dialog box, click Create.
+
+
+
+6. In the Hard disk file type dialog box, select VHD (Virtual Hard Disk), and then click Next.
+
+
+
+7. In the Storage on physical hard disk dialog box, click Next.
+
+
+
+8. In the File location and size dialog box, click Finish.
+
+
+
+9. In the Client1 - Hard Disk Selector dialog box, verify the new virtual hard disk is selected, and then click Choose.
+
+
+
+10. In the Client1 - Settings dialog box, verify the new hard disk appears, and then click OK.
+
+
+
+
+TASK B
+In this task you will create the partitions and mount them.
+
+
+1. Start the Client1 virtual machine.
+
+
+2. Log in using your user account and then open a terminal.
+
+
+3. To create two directories, at the command line, enter sudo mkdir /morning /evening and then press Enter.
+
+
+
+4. To begin the disk partitioning process, type sudofdisk /dev/sdb and then press Enter.
+
+
+
+5. To create a new partition, type n and then press Enter.
+
+
+
+6. To create an extended partition, type e and then press Enter.
+
+
+
+7. To accept the default starting Partition number of 1, press Enter.To accept the default starting point of the First sector for the partition, press Enter.To specify the size of the partition, when prompted for the Last sector, enter +4096M and then press Enter.
+
+
+
+8. To create a new partition, type n and then press Enter.To create a logical partition, enter l and then press Enter. Note: This character is a lowercase “L”.To accept the default starting point of the First sector for the partition, press Enter.To specify the size of the partition, type +1024M and then press Enter.
+
+
+
+9. Repeat step 8 to create a second logical partition of 1024M.
+
+
+
+10. To write the partition table on the disk and exit the utility, type w and press Enter.
+
+
+
+11. To restart the system, type reboot and press Enter.
+
+
+
+12. After the computer reboots, log in with your user account and then open a terminal.
+
+
+13. To view the new disk partitioning scheme, type sudo fdisk -l /dev/sdb and press Enter.
+
+
+
+14. To create an ext4 filesystem on/dev/sdb5, type sudo mkfs.ext4 /dev/sdb5 and then press Enter.
+
+
+
+15. To create an ext4 filesystem on /dev/sdb6, type sudo mkfs.ext4 /dev/sdb6 and then press Enter.
+
+
+
+16. To run the GNU Parted utility, type sudo parted and then press Enter.
+
+
+
+17. To select the sdb partition, type select /dev/sdb and then press Enter.
+
+
+
+18. To view the list of existing partitions, at the (parted) prompt, type print and then press Enter. Verify that partitions five and six have the ext4.
+
+
+
+19. To quit from the parted utility, type q and then press Enter.
+
+
+
+20. To view the existing label of the /dev/sdb5 partition, type sudoe2label /dev/sdb5 and then press Enter. Verify that there is no label set for the /dev/sdb5 partition.
+
+
+
+21. To apply a new label Mrng to the partition, type sudoe2label /dev/sdb5 Mrng and then press Enter. 
+
+
+
+22. To verify that the partition label for /dev/sdb5 has changed, type sudo e2label /dev/sdb5 and then press Enter. Verify that the label is set as “Mrng” for the /dev/sdb5 partition.
+
+
+
+23. To view the existing label of the /dev/sdb6 partition, type sudo e2label /dev/sdb6 and then press Enter. Verify that there is no label set for the /dev/sdb6 partition.
+
+
+
+24. To apply a new label Evng to the partition, type sudo e2label /dev/sdb6 Evng and then press Enter.
+
+
+
+25. To verify that the partition label for /dev/sdb6 has changed, type sudo e2label /dev/sdb6 and then press Enter. Verify that the label is set as “Evng” for the /dev/sdb6 partition.
+
+
+
+26. To mount the /dev/sdb5 partition using its label, type sudo mount LABEL=Mrng /morning and then press Enter.
+
+
+
+27. To mount the /dev/sdb6 partition using its label, type sudo mount LABEL=Evng /evening and then press Enter.
+
+
+
+28. To verify that the partitions have been mounted using their labels, type mount and then press Enter.Verify that the partitions /dev/sdb5 and /dev/sdb6 are mounted on the/morning and /evening directories.
+
+
+
+29. To show that the partitions have free space available, type df -h and press Enter.
+
+
+
+30. To unmount the partitions, type sudo umount /morning /evening and press Enter.
+
+
+
+31. To verify that the partitions are no longer mounted, type mount and press Enter.
+
+
+
+32. To remove the prior mount points, type sudo rmdir /morning /evening and press Enter.
+
+------------------------------------------------------------------------------------------------------------------
