@@ -969,7 +969,9 @@ Specify that input and output operations in a filesystem should be done asynchro
 
 ### File System Maintenance Commands
 
-`The fsck Command`
+> `sudo fdisk -l /dev/sda "show disck info"`
+
+> `The fsck Command`
 
 * The fsck command is used to check the integrity of a file system. File system integrity refers to the correctness and validity of a file system. Most systems automatically run the fsck command at boot time so that errors, if any, are detected and corrected before the system is used. File system errors are usually caused by power failures, hardware failures, or improper shutdown of the system.
 
