@@ -1,10 +1,11 @@
 ### B2B
 
 * **INDIRECTION**
-    * “All problems in computer science can be solved by another level of indirection”—David Wheeler.
-    * “. . . except for the problem of too many layers of indirection.”—Kevlin Henney.
+    ` “All problems in computer science can be solved by another level of indirection”—David Wheeler.`
+    `“. . . except for the problem of too many layers of indirection.”—Kevlin Henney.`
 
 * **An operating system is software that manages a computer’s hardware.**
+
 #### Debian
 
 * Debian is a widely used and well-respected Linux distribution known for its stability and reliability. It is used for various purposes, including desktop computing, servers, and embedded system. It uses an Advanced Package Tool (apt) package management system to handle software updates and security patches. The package management system helps keep the system up-to-date and secure by automatically downloading and installing security updates as soon as they are available. This can be executed manually or set up automatically.
@@ -29,54 +30,44 @@
 
 ### Special User Accounts
 
-```
-Special user accounts are required to run processes associated with certain services. For example, daemon is a user account that is used to run the daemon service.In special user accounts, the UID value for the users will be less than the default UID value, which is 500. Such special users will not have a home directory. You can create a special user account using the useradd -r {special user name} command.
+* Special user accounts are required to run processes associated with certain services. For example, daemon is a user account that is used to run the daemon service. In special user accounts, the UID value for the users will be less than the default UID value, which is 500. Such special users will not have a home directory. You can create a special user account using the useradd -r {special user name} command.
 
-```
 
 #### The chage Command
 
-```
-The chage command is used to change a number of settings that relate to the password and status of the user account.
+- The chage command is used to change a number of settings that relate to the password and status of the user account.
 
 The syntax of the chage command is chage [options] {username}.
 
 When you run the chage command with no options, it will prompt you to set:
+    
+    * Minimum Password Age:
+        - The minimum number of days that must pass after the user has changed their password before they are allowed to change it again. The default is 0 which means Minimum Password Age is disabled.
 
-Setting
+    * Maximum Password Age:
+        - The maximum number of days the user may use a password before they must change it. The default is 99999 which is over 200 years. Effectively, this means the Maximum Password Age is disabled.
 
-Purpose
+    * Last Password Change:
 
- * Minimum Password Age
+        - The date on which the user last changed their password.
 
-The minimum number of days that must pass after the user has changed their password before they are allowed to change it again. The default is 0 which means Minimum Password Age is disabled.
+    * Password Expiration Warning:
 
- * Maximum Password Age
+        - The number of days before the Maximum Password Age is reached when the user should be warned that their password is going to expire. This reminds the user to change the password a week before the Maximum Password Age is reached.
 
-The maximum number of days the user may use a password before they must change it. The default is 99999 which is over 200 years. Effectively, this means the Maximum Password Age is disabled.
+    * Password Inactive:
 
- * Last Password Change
+        - This setting indicates whether the password is inactive. The default is -1 which means the password is not inactive. If the value is set to 1, the password is inactive and the account is disabled.
 
-The date on which the user last changed their password.
+    * Account Expiration Date
 
- * Password Expiration Warning
+        - The last date the account can be used. After the account expiration date has passed, the account is disabled.
 
-The number of days before the Maximum Password Age is reached when the user should be warned that their password is going to expire. This reminds the user to change the password a week before the Maximum Password Age is reached.
+- The chage command has some options:
 
- * Password Inactive
+- Allows You To:
 
-This setting indicates whether the password is inactive. The default is -1 which means the password is not inactive. If the value is set to 1, the password is inactive and the account is disabled.
-
- * Account Expiration Date
-
-The last date the account can be used. After the account expiration date has passed, the account is disabled.
-
-The chage command has some options:
-
- * Option
-
-Allows You To
-
+`
 chage -d {yyyy-mm-dd} {user name}
 
 Sets the date of the last password change to the date specified.
@@ -104,7 +95,7 @@ Sets the warning period to the number of days specified. The user will be warned
 chage -l {user name}
 
 Lists the password aging information for the specified user.
-```
+`
 
 #### The userdel Command:
  
